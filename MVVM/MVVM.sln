@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM.Demo2", "MVVM.Demo2\MV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM.Demo2.Tests", "MVVM.Demo2.Tests\MVVM.Demo2.Tests.csproj", "{8201A7E3-7C06-4CAC-A4A2-D502C64C45A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM.Demo3", "MVVM.Demo3\MVVM.Demo3.csproj", "{7A3715AE-E982-4808-891E-838DA291B8C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM.Demo3.Tests", "MVVM.Demo3.Test\MVVM.Demo3.Tests.csproj", "{B78799B2-7C9E-49C6-B54E-3BF63D8AF601}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{8201A7E3-7C06-4CAC-A4A2-D502C64C45A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8201A7E3-7C06-4CAC-A4A2-D502C64C45A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8201A7E3-7C06-4CAC-A4A2-D502C64C45A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A3715AE-E982-4808-891E-838DA291B8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A3715AE-E982-4808-891E-838DA291B8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A3715AE-E982-4808-891E-838DA291B8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A3715AE-E982-4808-891E-838DA291B8C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78799B2-7C9E-49C6-B54E-3BF63D8AF601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78799B2-7C9E-49C6-B54E-3BF63D8AF601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78799B2-7C9E-49C6-B54E-3BF63D8AF601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78799B2-7C9E-49C6-B54E-3BF63D8AF601}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
