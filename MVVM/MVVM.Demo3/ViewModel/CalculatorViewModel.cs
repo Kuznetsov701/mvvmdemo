@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using MVVM.Demo3.Utilty;
+using System.ComponentModel;
 
 namespace MVVM.Demo3
 {
@@ -10,105 +11,52 @@ namespace MVVM.Demo3
         Division
     }
 
-    public class CalculatorViewModel : INotifyPropertyChanged
-    {
-        #region double LeftNum        
+    public class CalculatorViewModel : ObservableObject
+    {     
         private double _LeftNum;
         public double LeftNum
         {
-            get
-            {
-                return _LeftNum;
-            }
-            set
-            {
-                if (_LeftNum == value)
-                    return;
-                _LeftNum = value;
-                OnPropertyChanged(nameof(LeftNum));
-            }
+            get =>_LeftNum;
+            set => base.OnPropertyChanged(ref _LeftNum, value);
         }
-        #endregion
-
-        #region double RightNum        
+    
         private double _RightNum;
         public double RightNum
         {
-            get
-            {
-                return _RightNum;
-            }
-            set
-            {
-                if (_RightNum == value)
-                    return;
-                _RightNum = value;
-                OnPropertyChanged(nameof(RightNum));
-            }
+            get => _RightNum;
+            set => base.OnPropertyChanged(ref _RightNum, value);
         }
-        #endregion
-
-        #region double Result        
+     
         private double? _Result;
         public double? Result
         {
-            get
-            {
-                return _Result;
-            }
-            private set
-            {
-                if (_Result == value)
-                    return;
-                _Result = value;
-                OnPropertyChanged(nameof(Result));
-            }
+            get => _Result;
+            set => base.OnPropertyChanged(ref _Result, value);
         }
-        #endregion
-
-        #region Operation Operation        
+      
         private Operation _Operation;
         public Operation Operation
         {
-            get
-            {
-                return _Operation;
-            }
-            set
-            {
-                _Operation = value;
-                OnPropertyChanged(nameof(Operation));
-            }
+            get => _Operation;
+            set => base.OnPropertyChanged(ref _Operation, value);
         }
-        #endregion
-
-        #region string OperationString        
+       
         private string _OperationString;
         public string OperationString
         {
-            get
-            {
-                return _OperationString;
-            }
-            set
-            {
-                if (_OperationString == value)
-                    return;
-                _OperationString = value;
-                OnPropertyChanged(nameof(OperationString));
-            }
+            get => _OperationString;
+            set => base.OnPropertyChanged(ref _OperationString, value);
         }
-        #endregion
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        protected override void OnPropertyChanged(string propertyName)
         {
+            base.OnPropertyChanged(propertyName);
+
             if (propertyName == nameof(LeftNum) || propertyName == nameof(RightNum))
                 Result = Calc();
 
             if (propertyName == nameof(Operation))
                 OperationString = Operation.AsSymbol();
-
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private double? Calc()
@@ -122,7 +70,5 @@ namespace MVVM.Demo3
             }
             return null;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

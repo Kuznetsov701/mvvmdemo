@@ -5,17 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM.Demo1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="350">
+        Title="Сотрудники">
 
-    <Window.DataContext>
-        <local:MainWindowViewModel/>
-    </Window.DataContext>
+    <!--<Border Margin="10" BorderBrush="Gray" BorderThickness="1">
+        <Grid Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBox Width="50" Text="{Binding LeftNum, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
-        <TextBlock Text="+" Margin="3"/>
-        <TextBox Width="50" Text="{Binding RightNum, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
-        <TextBlock Text="=" Margin="3"/>
-        <TextBlock Width="50" Text="{Binding Result}" Margin="3"/>
-    </StackPanel>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="Поиск" Margin="10 0"/>
+                <TextBox VerticalAlignment="Center" Padding="3" Width="150" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding FilteredSourse, IsAsync=True}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Binding="{Binding LastName}" Header="Фамилия"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding FirstName}" Header="Имя"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding MiddleName}" Header="Отчество"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding DateOfBirthday, StringFormat='{}{0:dd.MM.yyyy}'}" Header="Дата рождения"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Border>-->
+    <Border Margin="10" BorderBrush="Gray" BorderThickness="1">
+        <Grid Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="Поиск" Margin="10 0"/>
+                <TextBox VerticalAlignment="Center" Padding="3" Width="150" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid Margin="0,0,6,0" Grid.Column="0" AutoGenerateColumns="False" ItemsSource="{Binding ItemsSourse, IsAsync=True}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Binding="{Binding LastName}" Header="Фамилия"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding FirstName}" Header="Имя"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding MiddleName}" Header="Отчество"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding DateOfBirthday, StringFormat='{}{0:dd.MM.yyyy}'}" Header="Дата рождения"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid Grid.Column="1" AutoGenerateColumns="False" ItemsSource="{Binding FilteredSourse, IsAsync=True}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Binding="{Binding LastName}" Header="Фамилия"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding FirstName}" Header="Имя"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding MiddleName}" Header="Отчество"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding DateOfBirthday, StringFormat='{}{0:dd.MM.yyyy}'}" Header="Дата рождения"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>
