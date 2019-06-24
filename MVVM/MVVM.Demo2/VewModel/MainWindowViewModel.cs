@@ -1,69 +1,72 @@
-﻿using System.ComponentModel;
+﻿using DataContract;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace MVVM.Demo2
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        #region double LeftNum        
-        private double _LeftNum;
-        public double LeftNum
-        {
-            get
-            {
-                return _LeftNum;
-            }
-            set
-            {
-                if (_LeftNum == value)
-                    return;
-                _LeftNum = value;
-                OnPropertyChanged(nameof(LeftNum));
-            }
-        }
-        #endregion
+        private IEmployeeDataSourse employeeDataSourse;
 
-        #region double RightNum        
-        private double _RightNum;
-        public double RightNum
+        public MainWindowViewModel(IEmployeeDataSourse employeeDataSourse)
         {
-            get
-            {
-                return _RightNum;
-            }
-            set
-            {
-                if (_RightNum == value)
-                    return;
-                _RightNum = value;
-                OnPropertyChanged(nameof(RightNum));
-            }
-        }
-        #endregion
+            this.employeeDataSourse = employeeDataSourse;
 
-        #region double Result        
-        private double _Result;
-        public double Result
-        {
-            get
-            {
-                return _Result;
-            }
-            private set
-            {
-                if (_Result == value)
-                    return;
-                _Result = value;
-                OnPropertyChanged(nameof(Result));
-            }
+            ItemsSourse = employeeDataSourse.Get();
         }
-        #endregion
+
+        private string _Filter;
+        public string Filter
+        {
+            get => _Filter;
+            set => OnPropertyChanged(ref _Filter, value);
+        }
+        
+        private List<Employee> _FilteredSourse;
+        public List<Employee> FilteredSourse
+        {
+            get => _FilteredSourse;
+            set => OnPropertyChanged(ref _FilteredSourse, value);
+        }
+        
+        private List<Employee> _ItemsSourse;
+        public List<Employee> ItemsSourse
+        {
+            get => _ItemsSourse;
+            set => OnPropertyChanged(ref _ItemsSourse, value);
+        }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (propertyName == nameof(LeftNum) || propertyName == nameof(RightNum))
-                Result = LeftNum + RightNum;
+            if (propertyName == nameof(Filter))
+            {
+                if (!string.IsNullOrWhiteSpace(Filter))
+                    FilteredSourse = ItemsSourse.Where(x => x.ToString().ToLower().Contains(Filter.ToLower())).ToList();
+                else
+                    FilteredSourse = ItemsSourse;
+            }
+
+            if (propertyName == nameof(ItemsSourse))
+            {
+                FilteredSourse = ItemsSourse;
+                Filter = null;
+            }
+
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected virtual bool OnPropertyChanged<T>(ref T self, T value, [CallerMemberName] string propertyName = "")
+        {
+            if (EqualityComparer<T>.Default.Equals(self, value))
+                return false;
+
+            self = value;
+            OnPropertyChanged(propertyName);
+            return true;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

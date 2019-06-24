@@ -162,6 +162,11 @@ namespace DataContract
             }
         }
 
+        public override string ToString()
+        {
+            return $"{ LastName } { FirstName } { MiddleName }, { DateOfBirthday.ToShortDateString() }";
+        }
+
         //public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
         //public bool HasErrors => throw new NotImplementedException();
