@@ -13,5 +13,15 @@ namespace MVVM.Demo3
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            IEmployeeDataSourse employeeDataSourse = new EmployeeDataSourse();
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(employeeDataSourse);
+
+            Window window = new Window() { Content = mainWindowViewModel };
+            window.Show();
+        }
     }
 }

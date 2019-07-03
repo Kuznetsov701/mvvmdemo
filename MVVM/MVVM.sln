@@ -13,6 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM.Demo2", "MVVM.Demo2\MV
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM.Demo3", "MVVM.Demo3\MVVM.Demo3.csproj", "{7A3715AE-E982-4808-891E-838DA291B8C8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D64B19E1-C248-47DB-9E66-7BDC883F1F55} = {D64B19E1-C248-47DB-9E66-7BDC883F1F55}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{D64B19E1-C248-47DB-9E66-7BDC883F1F55}"
 EndProject

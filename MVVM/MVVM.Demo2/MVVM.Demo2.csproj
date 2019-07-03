@@ -66,8 +66,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeDataSourse.cs" />
-    <Compile Include="IEmployeeDataSourse.cs" />
+    <Compile Include="DataSourse\EmployeeDataSourse.cs" />
+    <Compile Include="DataSourse\IEmployeeDataSourse.cs" />
     <Compile Include="VewModel\MainWindowViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
