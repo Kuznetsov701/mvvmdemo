@@ -12,6 +12,25 @@
                     <WindowChrome CaptionHeight="30" ResizeBorderThickness="6"/>
                 </Setter.Value>
             </Setter>
+            <Setter Property="local:BihaviorsAttachedProperty.Behaviors">
+                <Setter.Value>
+                    <local:Behaviors>
+                        
+                        <local:AnimationOfClosingBehavior Property="Opacity">
+                            <local:AnimationOfClosingBehavior.Animation>
+                                <DoubleAnimation From="1" To="0" Duration="0:0:1"/>
+                            </local:AnimationOfClosingBehavior.Animation>
+                        </local:AnimationOfClosingBehavior>
+                        
+                        <local:AnimationOfOpeningBehavior Property="Opacity">
+                            <local:AnimationOfOpeningBehavior.Animation>
+                                <DoubleAnimation From="0" To="1" Duration="0:0:1"/>
+                            </local:AnimationOfOpeningBehavior.Animation>
+                        </local:AnimationOfOpeningBehavior>
+                        
+                    </local:Behaviors>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Window">

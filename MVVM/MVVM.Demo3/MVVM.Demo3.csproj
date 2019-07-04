@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.0.1\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -57,6 +60,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\AnimationFromBehaviors\BaseAnimationFromBehavior.cs" />
+    <Compile Include="Behaviors\AnimationFromBehaviors\Window\AnimationOfClosingBehavior.cs" />
+    <Compile Include="Behaviors\AnimationFromBehaviors\Window\AnimationOfOpeningBehavior.cs" />
+    <Compile Include="Behaviors\BihaviorsAttachedProperty.cs" />
     <Compile Include="Commands\RefreshCommand.cs" />
     <Compile Include="Connected Services\EmployeeServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -105,6 +112,7 @@
     <None Include="Connected Services\EmployeeServiceReference\EmployeeService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\DataContract.Employee.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
