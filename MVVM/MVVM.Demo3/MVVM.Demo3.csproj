@@ -63,7 +63,7 @@
     <Compile Include="Behaviors\AnimationFromBehaviors\BaseAnimationFromBehavior.cs" />
     <Compile Include="Behaviors\AnimationFromBehaviors\Window\AnimationOfClosingBehavior.cs" />
     <Compile Include="Behaviors\AnimationFromBehaviors\Window\AnimationOfOpeningBehavior.cs" />
-    <Compile Include="ButtonAttachedProperty.cs" />
+    <Compile Include="AttachedProperty\ButtonAttachedProperty.cs" />
     <Compile Include="Commands\RefreshCommand.cs" />
     <Compile Include="Commands\WindowCommand.cs" />
     <Compile Include="Connected Services\EmployeeServiceReference\Reference.cs">
@@ -74,7 +74,7 @@
     <Compile Include="DataSourse\EmployeeDataSourse.cs" />
     <Compile Include="DataSourse\IEmployeeDataSourse.cs" />
     <Compile Include="Extensions\Extensions.cs" />
-    <Compile Include="Interactivity.cs" />
+    <Compile Include="Behaviors\Interactivity.cs" />
     <Compile Include="Utilty\ObservableObject.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

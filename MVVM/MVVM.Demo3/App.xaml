@@ -8,20 +8,18 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="true">
                     <Trigger.Setters>
-                        <Setter Property="Background" Value="LightGray"/>
-                        <Setter Property="Foreground" Value="DarkBlue"/>
-                        <Setter Property="BorderBrush" Value="DarkBlue"/>
+                        <Setter Property="Opacity" Value="0.5"/>
                     </Trigger.Setters>
                 </Trigger>
                 <Trigger Property="IsPressed" Value="true">
                     <Trigger.Setters>
-                        <Setter Property="Opacity" Value="0.5"/>
+                        <Setter Property="Background" Value="SlateGray"/>
                     </Trigger.Setters>
                 </Trigger>
             </Style.Triggers>
-            <Setter Property="Background" Value="SlateGray"/>
-            <Setter Property="Foreground" Value="AntiqueWhite"/>
-            <Setter Property="BorderBrush" Value="AntiqueWhite"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="local:ButtonProperty.CornerRadius" Value="10"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -88,10 +86,16 @@
                                     <ColumnDefinition Width="30"/>
                                     <ColumnDefinition Width="30"/>
                                 </Grid.ColumnDefinitions>
-                                <Button Content="_" Margin="3" Grid.Column="3" WindowChrome.IsHitTestVisibleInChrome="True"
+                                <Button Content="_" Margin="3 3 -1 3" 
+                                        local:ButtonProperty.CornerRadius="0 0 0 10"
+                                        Grid.Column="3" 
+                                        WindowChrome.IsHitTestVisibleInChrome="True"
                                         Command="{x:Static local:WindowCommand.Minimaze}" 
                                         CommandParameter="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
-                                <Button Content="X" Margin="3" Grid.Column="4" WindowChrome.IsHitTestVisibleInChrome="True"
+                                <Button Content="X" Margin="0 3 3 3" 
+                                        local:ButtonProperty.CornerRadius="0 10 0 0" 
+                                        Grid.Column="4" 
+                                        WindowChrome.IsHitTestVisibleInChrome="True"
                                         Command="{x:Static local:WindowCommand.Close}" 
                                         CommandParameter="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
                                 <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Margin="6" Background="LightGray" CornerRadius="10">
