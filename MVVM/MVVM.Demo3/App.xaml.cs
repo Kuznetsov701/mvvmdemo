@@ -22,6 +22,8 @@ namespace MVVM.Demo3
 
             Window window = new Window() { Content = mainWindowViewModel };
             window.Show();
+            Window window2 = new Window() { Content = mainWindowViewModel };
+            window2.Show();
         }
     }
 }

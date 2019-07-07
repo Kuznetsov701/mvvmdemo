@@ -4,6 +4,43 @@
              xmlns:local="clr-namespace:MVVM.Demo3">
     <Application.Resources>
 
+        <Style TargetType="Button" x:Key="BaseButtonStyle">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Trigger.Setters>
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Foreground" Value="DarkBlue"/>
+                        <Setter Property="BorderBrush" Value="DarkBlue"/>
+                    </Trigger.Setters>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Trigger.Setters>
+                        <Setter Property="Opacity" Value="0.5"/>
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Background" Value="SlateGray"/>
+            <Setter Property="Foreground" Value="AntiqueWhite"/>
+            <Setter Property="BorderBrush" Value="AntiqueWhite"/>
+            <Setter Property="local:ButtonProperty.CornerRadius" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding local:ButtonProperty.CornerRadius}">
+                            <Viewbox Margin="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <ContentPresenter/>
+                            </Viewbox>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}"/>
+
         <Style TargetType="Window">
             <Setter Property="WindowStyle" Value="None"/>
             <Setter Property="AllowsTransparency" Value="True"/>
@@ -12,23 +49,27 @@
                     <WindowChrome CaptionHeight="30" ResizeBorderThickness="6"/>
                 </Setter.Value>
             </Setter>
-            <Setter Property="local:BihaviorsAttachedProperty.Behaviors">
+            <Setter Property="local:Interactivity.Template">
                 <Setter.Value>
-                    <local:Behaviors>
-                        
-                        <local:AnimationOfClosingBehavior Property="Opacity">
-                            <local:AnimationOfClosingBehavior.Animation>
-                                <DoubleAnimation From="1" To="0" Duration="0:0:1"/>
-                            </local:AnimationOfClosingBehavior.Animation>
-                        </local:AnimationOfClosingBehavior>
-                        
-                        <local:AnimationOfOpeningBehavior Property="Opacity">
-                            <local:AnimationOfOpeningBehavior.Animation>
-                                <DoubleAnimation From="0" To="1" Duration="0:0:1"/>
-                            </local:AnimationOfOpeningBehavior.Animation>
-                        </local:AnimationOfOpeningBehavior>
-                        
-                    </local:Behaviors>
+                    <local:InteractivityTemplate>
+                        <local:InteractivityItems>
+                            <local:InteractivityItems.Behaviors>
+
+                                <local:AnimationOfClosingBehavior Property="Opacity">
+                                    <local:AnimationOfClosingBehavior.Animation>
+                                        <DoubleAnimation From="1" To="0" Duration="0:0:1"/>
+                                    </local:AnimationOfClosingBehavior.Animation>
+                                </local:AnimationOfClosingBehavior>
+
+                                <local:AnimationOfOpeningBehavior Property="Opacity">
+                                    <local:AnimationOfOpeningBehavior.Animation>
+                                        <DoubleAnimation From="0" To="1" Duration="0:0:1"/>
+                                    </local:AnimationOfOpeningBehavior.Animation>
+                                </local:AnimationOfOpeningBehavior>
+
+                            </local:InteractivityItems.Behaviors>
+                        </local:InteractivityItems>
+                    </local:InteractivityTemplate>
                 </Setter.Value>
             </Setter>
             <Setter Property="Template">
@@ -43,9 +84,17 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="30"/>
                                 </Grid.ColumnDefinitions>
-                                <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Margin="6" Background="LightGray" CornerRadius="10">
+                                <Button Content="_" Margin="3" Grid.Column="3" WindowChrome.IsHitTestVisibleInChrome="True"
+                                        Command="{x:Static local:WindowCommand.Minimaze}" 
+                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                                <Button Content="X" Margin="3" Grid.Column="4" WindowChrome.IsHitTestVisibleInChrome="True"
+                                        Command="{x:Static local:WindowCommand.Close}" 
+                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                                <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Margin="6" Background="LightGray" CornerRadius="10">
                                     <ContentPresenter/>
                                 </Border>
                             </Grid>
