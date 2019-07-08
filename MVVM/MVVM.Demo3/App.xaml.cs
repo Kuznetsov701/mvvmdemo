@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MVVM.Demo3
 {
@@ -20,9 +22,11 @@ namespace MVVM.Demo3
             IEmployeeDataSourse employeeDataSourse = new EmployeeDataSourse();
             MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(employeeDataSourse);
 
-            Window window = new Window() { Content = mainWindowViewModel };
+            ImageSource imageSource = new BitmapImage(new Uri(@"pack://application:,,,/images/mainicon.png"));
+
+            Window window = new Window() { Content = mainWindowViewModel, Title = "2154", Icon = imageSource };
             window.Show();
-            Window window2 = new Window() { Content = mainWindowViewModel };
+            Window window2 = new Window() { Content = mainWindowViewModel, Title = "215qwr4", Icon = imageSource };
             window2.Show();
         }
     }

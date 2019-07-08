@@ -60,10 +60,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttachedProperty\WindowAttachedProperty.cs" />
     <Compile Include="Behaviors\AnimationFromBehaviors\BaseAnimationFromBehavior.cs" />
     <Compile Include="Behaviors\AnimationFromBehaviors\Window\AnimationOfClosingBehavior.cs" />
     <Compile Include="Behaviors\AnimationFromBehaviors\Window\AnimationOfOpeningBehavior.cs" />
     <Compile Include="AttachedProperty\ButtonAttachedProperty.cs" />
+    <Compile Include="Behaviors\FixWindowBehavior.cs" />
     <Compile Include="Commands\RefreshCommand.cs" />
     <Compile Include="Commands\WindowCommand.cs" />
     <Compile Include="Connected Services\EmployeeServiceReference\Reference.cs">
@@ -125,6 +127,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Styles\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\WindowStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,6 +166,10 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\mainIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
