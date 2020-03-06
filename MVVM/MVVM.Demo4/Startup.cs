@@ -17,7 +17,7 @@ namespace MVVM.Demo4
         {
             services.AddWindowDialogProvider(x => x.AddMap<MainWindowViewModel, MainWindow>());
             services.AddTransient<IEmployeeDataSourse, EmployeeDataSourse>();
-            services.AddTransient<MainWindowViewModel>();
+            services.AddSingleton<MainWindowViewModel>();
             services.AddTransient<MainWindow>();
         }
     }

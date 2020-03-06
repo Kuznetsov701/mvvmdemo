@@ -13,7 +13,7 @@ namespace MVVM.Demo5
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddSingleton<CounterViewModel>();
-            builder.Services.AddSingleton<FetchDataViewModel>();
+            builder.Services.AddTransient<FetchDataViewModel>();
 
             await builder.Build().RunAsync();
         }

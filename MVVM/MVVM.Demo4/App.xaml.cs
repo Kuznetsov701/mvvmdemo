@@ -15,7 +15,7 @@ namespace MVVM.Demo4
             ServiceProvider provider = serviceDescriptors.BuildServiceProvider();
 
             provider.GetRequiredService<MainWindowViewModel>();
-            //provider.GetRequiredService<MainWindowViewModel>();
+            provider.GetRequiredService<MainWindowViewModel>();
         }
     }
 }

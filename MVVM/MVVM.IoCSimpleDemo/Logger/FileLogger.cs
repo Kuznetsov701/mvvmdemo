@@ -11,7 +11,7 @@ namespace IoCSimpleDemo
         {
             this.filePath = filePath;
 
-            Console.WriteLine("ctor FileLogger");
+            Console.WriteLine("***ctor FileLogger");
         }
 
         public void Write(string text)
